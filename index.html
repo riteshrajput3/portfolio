@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-<title>Ritesh Rajput Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ritesh Rajput | Portfolio</title>
 
 <link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+
+
+<!-- NAVBAR -->
 
 <nav>
 
@@ -26,21 +34,22 @@
 </nav>
 
 
-<section class="hero">
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
 
 <img src="assets/profile.jpg" class="profile">
 
 <div class="glass">
 
-<h3 id="typing"></h3>
+<h3>Python Developer</h3>
 
 <h1>Ritesh Rajput</h1>
 
-<p>
-Python Developer • Cybersecurity Enthusiast
-</p>
+<p>Python Developer • Cybersecurity Enthusiast</p>
 
-<a class="btn" href="assets/resume.pdf" download>
+<a href="assets/resume.pdf" download class="btn">
 Download Resume
 </a>
 
@@ -49,12 +58,18 @@ Download Resume
 </section>
 
 
+
+<!-- TERMINAL SECTION -->
+
 <section class="terminal">
 
 <div id="terminal"></div>
 
 </section>
 
+
+
+<!-- GITHUB GRAPH -->
 
 <section class="github">
 
@@ -65,21 +80,37 @@ Download Resume
 </section>
 
 
+
+<!-- CHATBOT -->
+
 <section class="chatbot">
 
-<h3>Ask Me</h3>
+<h2>Ask Me</h2>
 
 <div id="chat-window"></div>
 
-<input id="chat-input">
+<input id="chat-input" placeholder="Ask about my projects...">
 
 <button onclick="sendMessage()">Send</button>
 
 </section>
 
+
+
+<!-- FOOTER -->
+
+<footer style="text-align:center;padding:40px;opacity:0.6;">
+
+<p>© 2026 Ritesh Rajput</p>
+
+</footer>
+
+
+
 <script src="js/script.js"></script>
 <script src="js/terminal.js"></script>
 <script src="js/chatbot.js"></script>
+
 
 </body>
 </html>

@@ -1,65 +1,100 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 body{
-
-background:#020617;
+background:linear-gradient(135deg,#020617,#020617,#0f172a);
 color:white;
-font-family:Poppins;
-
+min-height:100vh;
 }
 
 nav{
-
 display:flex;
 justify-content:space-between;
-padding:20px;
+align-items:center;
+padding:25px 80px;
+}
 
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
 }
 
 .hero{
-
 display:flex;
 align-items:center;
 justify-content:center;
-gap:80px;
-height:80vh;
-
+gap:120px;
+height:90vh;
 }
 
 .profile{
-
-width:200px;
+width:220px;
 border-radius:50%;
-
+border:5px solid #1e293b;
+box-shadow:0 0 40px rgba(34,197,94,0.3);
 }
 
 .glass{
-
 background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
 padding:40px;
-border-radius:15px;
-backdrop-filter:blur(15px);
+border-radius:20px;
+width:420px;
+box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
 
+.glass h1{
+font-size:36px;
+margin:10px 0;
 }
 
 .btn{
-
 background:#22c55e;
-padding:10px 20px;
-border-radius:20px;
+padding:12px 28px;
+border-radius:30px;
 color:black;
+font-weight:600;
+display:inline-block;
+margin-top:15px;
 text-decoration:none;
-
 }
 
 .terminal{
-
-padding:40px;
+padding:80px;
 font-family:monospace;
 color:#22c55e;
+max-width:900px;
+margin:auto;
+}
 
+.github{
+padding:60px;
+max-width:900px;
+margin:auto;
 }
 
 .chatbot{
+padding:60px;
+max-width:900px;
+margin:auto;
+}
 
-padding:40px;
+input{
+padding:8px;
+width:200px;
+}
 
+button{
+padding:8px 12px;
 }
