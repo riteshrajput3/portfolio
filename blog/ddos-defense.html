@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDoS Defense Architecture | Ritesh Rajput</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 140px auto 80px auto;
+      padding: 0 24px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 30px;
+      transition: var(--transition-spring);
+    }
+    
+    .back-btn:hover {
+      color: var(--accent-secondary);
+      transform: translateX(-3px);
+    }
+    
+    .article-header {
+      margin-bottom: 40px;
+    }
+    
+    .article-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: var(--accent-primary);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .article-content {
+      font-size: 16px;
+      color: var(--text-sec);
+      line-height: 1.8;
+    }
+    
+    .article-content p {
+      margin-bottom: 25px;
+    }
+    
+    .article-content h2, .article-content h3 {
+      color: var(--text-main);
+      margin: 40px 0 20px 0;
+      font-family: var(--font-heading);
+    }
+    
+    .article-content ul, .article-content ol {
+      margin-bottom: 25px;
+      padding-left: 20px;
+    }
+    
+    .article-content li {
+      margin-bottom: 10px;
+    }
+    
+    .code-block {
+      background: var(--bg-darker);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--text-main);
+      overflow-x: auto;
+      margin: 30px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .article-container {
+        margin-top: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <h2 onclick="location.href='../index.html'">Ritesh Rajput</h2>
+    <ul id="nav-menu">
+      <li><a href="../index.html#home">Home</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../index.html#skills">Skills</a></li>
+      <li><a href="../index.html#developer-stats">GitHub</a></li>
+      <li><a href="../index.html#leetcode-stats">LeetCode</a></li>
+      <li><a href="../index.html#certifications">Certifications</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    
+    <div class="nav-right">
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <!-- Sun icon -->
+        <svg class="sun-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="moon-icon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <!-- Resume Download CTA -->
+      <a href="../assets/resume.pdf" download class="btn btn-secondary" style="padding: 8px 16px; font-size: 13.5px; border-radius: 6px;">
+        Resume
+      </a>
+      
+      <!-- Mobile hamburger menu toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE CONTAINER -->
+  <div class="article-container">
+    <a href="../blog.html" class="back-btn">← Back to Blog</a>
+    
+    <article class="glass-card" style="padding: 40px;">
+      <div class="article-header">
+        <div class="article-meta">
+          <span>🔒 Network Security</span>
+          <span>•</span>
+          <span>June 20, 2026</span>
+          <span>•</span>
+          <span>6 min read</span>
+        </div>
+        <h1 style="font-size: 36px; line-height: 1.2; margin-bottom: 15px; font-family: var(--font-heading);">Mitigating DDoS Attacks: Behavior-Based Defense Architectures</h1>
+        <p style="color: var(--text-muted); font-style: italic; font-size: 14px;">By Ritesh Rajput</p>
+      </div>
+      
+      <div class="article-content">
+        <p>
+          Distributed Denial of Service (DDoS) attacks continue to evolve in complexity, transitioning from simplistic, volumetric resource depletion to sophisticated application-layer (Layer 7) behavioral abuse. Traditional IP blacklisting and static rule structures fail to mitigate these attacks without causing substantial collateral damage to legitimate users. 
+        </p>
+        
+        <p>
+          To protect high-availability APIs—especially those operating under strict SLAs (such as a 99.9% uptime requirement)—engineers must construct multi-tiered, behavior-based defense pipelines. This article details the core components of such an architecture.
+        </p>
+        
+        <h2>1. The Limits of Volumetric Filtering</h2>
+        <p>
+          Volumetric attacks (e.g., UDP/SYN floods) are typically handled at the network edge by Anycast routing and scrubbing centers. However, application-layer attacks (e.g., slow HTTP requests, HTTP flood queries targeting heavy database calls) masquerade as genuine user actions. Because the requests conform to RFC standards and originate from hundreds of distinct IP addresses, network-level scrubbers are blind to them.
+        </p>
+        
+        <h2>2. Implementing Behavior-Based Rate Limiting</h2>
+        <p>
+          A robust solution uses behavior-based rate limiting rather than simplistic global thresholds. Rather than asking "Has this IP exceeded 100 requests per minute?", the system builds a dynamic user activity model.
+        </p>
+        
+        <p>
+          Using Token Bucket algorithms running in memory stores like Redis, we track metrics along multiple dimensions:
+        </p>
+        <ul>
+          <li><b>Session Consistency:</b> Monitoring query patterns against user session tokens.</li>
+          <li><b>Request Entropy:</b> Random request distribution. Bots often target identical URLs in cycles, whereas humans demonstrate natural exploration patterns.</li>
+          <li><b>Asymmetry Ratios:</b> Ratio of incoming requests to session authentication depth.</li>
+        </ul>
+
+        <div class="code-block">
+<span class="code-comment"># Conceptual Redis Token Bucket Check in Python</span>
+<span class="code-keyword">def</span> <span style="color: var(--accent-primary);">check_rate_limit</span>(client_ip, session_token):
+    key = <span class="code-string">f"rate:{client_ip}:{session_token}"</span>
+    tokens = redis.get(key)
+    <span class="code-keyword">if</span> tokens <span class="code-keyword">is</span> <span class="code-keyword">None</span>:
+        redis.setex(key, <span class="code-number">60</span>, MAX_TOKENS - <span class="code-number">1</span>)
+        <span class="code-keyword">return</span> <span class="code-keyword">True</span>
+    
+    <span class="code-keyword">if</span> int(tokens) <= <span class="code-number">0</span>:
+        <span class="code-comment"># Trigger behavioral telemetry analysis</span>
+        log_anomaly_score(client_ip, anomaly_weight=<span class="code-number">1.5</span>)
+        <span class="code-keyword">return</span> <span class="code-keyword">False</span>
+        
+    redis.decr(key)
+    <span class="code-keyword">return</span> <span class="code-keyword">True</span>
+        </div>
+
+        <h2>3. Real-time Anomaly Scoring (Triage)</h2>
+        <p>
+          When client metrics cross initial warnings, we route request telemetry to a real-time scoring engine. Rather than directly blocking requests (which increases false positives), we calculate a threat score based on:
+        </p>
+        <ol>
+          <li>User agent string consistency.</li>
+          <li>SSL/TLS cipher suite fingerprint (JA3 fingerprinting).</li>
+          <li>HTTP header ordering patterns (bots often have different header order than modern web browsers).</li>
+        </ol>
+        
+        <p>
+          If the anomaly score crosses a critical threshold, the request is redirected to a JS challenge verification layer (e.g., FIDO2/WebAuthn prompts or cryptographic puzzles), checking if the client runs a complete browser environment without blocking clean requests.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Securing public-facing APIs demands a defense-in-depth security approach. By coupling network-edge filtering with behavioral anomaly scoring and token-bucket structures, we can maintain high service availability (sustaining 99.9% uptime SLAs) and keep latency low for actual users during active attacks.
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed & Developed by Ritesh Rajput. © 2026. Built with premium design principles.</p>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

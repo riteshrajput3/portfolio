@@ -1,0 +1,16 @@
+# netlify.toml
+# Netlify configuration file for Ritesh Rajput's Portfolio Website
+
+[build]
+  # The directory containing the static HTML, CSS, and JS files to deploy.
+  # Since this is a pure static website, the root folder is deployed directly.
+  publish = "."
+
+# Add security and cache optimization headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"

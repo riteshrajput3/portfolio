@@ -1,21 +1,358 @@
-<h1>Projects</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Ritesh Rajput</title>
+  
+  <meta name="description" content="Technical project case studies by Ritesh Rajput, focusing on AI automation, Zero-Trust threat triage, Passwordless MFA, and Blockchain smart contract optimization.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .projects-container {
+      max-width: 1000px;
+      margin: 140px auto 80px auto;
+      padding: 0 24px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 30px;
+      transition: var(--transition-spring);
+    }
+    
+    .back-btn:hover {
+      color: var(--accent-secondary);
+      transform: translateX(-3px);
+    }
+    
+    .project-detail-card {
+      margin-bottom: 60px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-premium);
+    }
+    
+    .project-detail-header-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    .project-detail-visual {
+      background: var(--bg-darker);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100%;
+      min-height: 280px;
+    }
+    
+    .project-detail-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .project-detail-meta {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .project-detail-body {
+      padding: 40px;
+    }
+    
+    .project-detail-body h4 {
+      font-size: 16px;
+      color: var(--accent-primary);
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .project-bullets {
+      list-style: none;
+      margin-bottom: 0;
+    }
+    
+    .project-bullets li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 16px;
+      font-size: 15px;
+      color: var(--text-sec);
+      line-height: 1.7;
+    }
+    
+    .project-bullets li strong {
+      color: var(--text-main);
+    }
+    
+    .project-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-secondary);
+      font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+      .project-detail-header-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-detail-meta, .project-detail-body {
+        padding: 24px;
+      }
+      .projects-container {
+        margin-top: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-<div>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <h2 onclick="location.href='index.html'">Ritesh Rajput</h2>
+    <ul id="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects" class="active">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#developer-stats">GitHub</a></li>
+      <li><a href="index.html#leetcode-stats">LeetCode</a></li>
+      <li><a href="index.html#certifications">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    
+    <div class="nav-right">
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <!-- Sun icon -->
+        <svg class="sun-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="moon-icon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <!-- Resume Download CTA -->
+      <a href="assets/resume.pdf" download class="btn btn-secondary" style="padding: 8px 16px; font-size: 13.5px; border-radius: 6px;">
+        Resume
+      </a>
+      
+      <!-- Mobile hamburger menu toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-<img src="assets/projects/cyber-triage.png">
+  <!-- PROJECTS MAIN -->
+  <div class="projects-container">
+    <a href="index.html" class="back-btn">← Back to Main Portfolio</a>
+    
+    <h1 style="font-size: 40px; margin-bottom: 40px; text-align: center;">Technical <span>Project Case Studies</span></h1>
+    
+    <!-- Project 1 -->
+    <div class="project-detail-card glass-card" id="automation-suite">
+      <div class="project-detail-header-grid">
+        <div class="project-detail-visual">
+          <img src="assets/projects/automation-suite.png" alt="Intelligent Business Process Automation Suite">
+        </div>
+        <div class="project-detail-meta">
+          <span class="project-tag">AI & Automation Engineering</span>
+          <h2 style="font-size: 24px; margin-bottom: 10px; font-family: var(--font-heading);">Intelligent Process Automation Suite</h2>
+          <div class="project-tagline" style="font-size: 15px; margin-bottom: 20px; color: var(--accent-secondary);">80% Operational Effort Reduction</div>
+          
+          <div class="project-metrics" style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="metric-tag">n8n Workflow Engine</span>
+            <span class="metric-tag">Python & REST APIs</span>
+            <span class="metric-tag">OpenAI LLM Integration</span>
+            <span class="metric-tag">Webhooks</span>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <a href="https://github.com/riteshrajput3" target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 6px;">View Codebase</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-detail-body">
+        <h4>Key Accomplishments & Implementation Details</h4>
+        <ul class="project-bullets">
+          <li><strong>Modular Automation Platform:</strong> Designed an event-driven automation framework utilizing <strong>n8n</strong> to orchestrate 8+ end-to-end workflows (covering lead captures, invoice matching, and operations alerts), cutting manual effort by <strong>80%</strong>.</li>
+          <li><strong>OpenAI LLM Parsing:</strong> Integrated OpenAI LLM endpoints for intelligent extraction, categorization, and routing of inbound client documents, reducing audit overhead by <strong>65%</strong> with <strong>92%+</strong> classification accuracy.</li>
+          <li><strong>Real-time Alerting:</strong> Implemented webhook listeners and chat bot APIs to broadcast real-time critical operational anomalies and authorization logs directly to non-technical operational leads.</li>
+          <li><strong>No-code Integration:</strong> Built structured workflow boundaries enabling team members to manage configuration parameters safely without changing the underlying script code.</li>
+        </ul>
+      </div>
+    </div>
 
-<h3>Cyber Triage Tool</h3>
+    <!-- Project 2 -->
+    <div class="project-detail-card glass-card" id="cyber-workflows">
+      <div class="project-detail-header-grid">
+        <div class="project-detail-visual">
+          <img src="assets/projects/cyber-workflows.png" alt="AI-Powered Cybersecurity Automation Workflows">
+        </div>
+        <div class="project-detail-meta">
+          <span class="project-tag">Cybersecurity Automation</span>
+          <h2 style="font-size: 24px; margin-bottom: 10px; font-family: var(--font-heading);">AI-Powered Cybersecurity Automation Workflows</h2>
+          <div class="project-tagline" style="font-size: 15px; margin-bottom: 20px; color: var(--accent-secondary);">70% Faster Threat Response</div>
+          
+          <div class="project-metrics" style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="metric-tag">Agentic AI</span>
+            <span class="metric-tag">n8n Workflows</span>
+            <span class="metric-tag">Python Threat Intel</span>
+            <span class="metric-tag">SIEM Integration</span>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <a href="https://github.com/riteshrajput3" target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 6px;">View Codebase</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-detail-body">
+        <h4>Key Accomplishments & Implementation Details</h4>
+        <ul class="project-bullets">
+          <li><strong>Threat Intelligence Pipelines:</strong> Developed automated threat intelligence triage workflows aggregating vulnerability indicators from SIEM setups, security logs, and open-source threat databases.</li>
+          <li><strong>MTTR Reduction:</strong> Connected 5+ threat detection feeds into unified priority evaluation handlers, accelerating critical infrastructure alert response times by <strong>70%</strong>.</li>
+          <li><strong>Alert Enrichment:</strong> Automated secondary lookup procedures (IP domain checks, host reputation indexing, CVE mappings) to enrich telemetry logs before human reviews.</li>
+        </ul>
+      </div>
+    </div>
 
-<p>Digital forensic automation platform.</p>
+    <!-- Project 3 -->
+    <div class="project-detail-card glass-card" id="mfa-system">
+      <div class="project-detail-header-grid">
+        <div class="project-detail-visual">
+          <img src="assets/projects/mfa-system.png" alt="Passwordless MFA System">
+        </div>
+        <div class="project-detail-meta">
+          <span class="project-tag">Zero-Trust Authentication</span>
+          <h2 style="font-size: 24px; margin-bottom: 10px; font-family: var(--font-heading);">Passwordless Biometric MFA System</h2>
+          <div class="project-tagline" style="font-size: 15px; margin-bottom: 20px; color: var(--accent-secondary);">3rd Prize, GHR Hack 2.0 (2026)</div>
+          
+          <div class="project-metrics" style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="metric-tag">Python & Flask</span>
+            <span class="metric-tag">OpenCV Biometrics</span>
+            <span class="metric-tag">AES-256 GCM</span>
+            <span class="metric-tag">Zero-Trust Auth</span>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <a href="https://github.com/riteshrajput3" target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 6px;">View Codebase</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-detail-body">
+        <h4>Key Accomplishments & Implementation Details</h4>
+        <ul class="project-bullets">
+          <li><strong>Phishing-Resistant MFA:</strong> Engineered a passwordless local facial recognition authentication flow to mitigate credentials stuffing, session hijacking, and brute-force logins.</li>
+          <li><strong>Encrypted Biometrics:</strong> Structured secure facial matching algorithms in Python using OpenCV, hashing and encrypting biometric parameters locally with AES-256 (GCM mode) to protect template integrity.</li>
+          <li><strong>Hackathon Verification:</strong> Presented a functional login demonstration, securing <strong>3rd Prize</strong> at the university GHR Hack 2.0 (2026) competition.</li>
+        </ul>
+      </div>
+    </div>
 
-</div>
+    <!-- Project 4 -->
+    <div class="project-detail-card glass-card" id="blockchain-records">
+      <div class="project-detail-header-grid">
+        <div class="project-detail-visual">
+          <img src="assets/projects/blockchain-records.png" alt="Decentralized Data Management System">
+        </div>
+        <div class="project-detail-meta">
+          <span class="project-tag">Blockchain & Web3</span>
+          <h2 style="font-size: 24px; margin-bottom: 10px; font-family: var(--font-heading);">Decentralized Student Records Registry</h2>
+          <div class="project-tagline" style="font-size: 15px; margin-bottom: 20px; color: var(--accent-secondary);">Runner-Up, GHR Hack 1.0 (2025) | 35% Gas Optimized</div>
+          
+          <div class="project-metrics" style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="metric-tag">Solidity Contracts</span>
+            <span class="metric-tag">Ethereum Network</span>
+            <span class="metric-tag">Web3.js API</span>
+            <span class="metric-tag">IPFS Ledger</span>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <a href="https://github.com/riteshrajput3" target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 6px;">View Codebase</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-detail-body">
+        <h4>Key Accomplishments & Implementation Details</h4>
+        <ul class="project-bullets">
+          <li><strong>Tamper-proof Records Registry:</strong> Designed Solidity smart contracts mapping immutable student records hashes on-chain, referencing attestation data documents saved on IPFS decentralization directories.</li>
+          <li><strong>Solidity Gas Optimization:</strong> Structured optimized Solidity logic structures (struct alignments, mapping operations, logic bypasses) reducing Smart Contract gas costs by <strong>35%</strong>.</li>
+          <li><strong>Hackathon Verification:</strong> Validated record state consistency on local networks, winning the **Runner-Up** rank at GHR Hack 1.0 (2025).</li>
+        </ul>
+      </div>
+    </div>
 
-<div>
+    <!-- Project 5: Jivan Gaming -->
+    <div class="project-detail-card glass-card" id="jivan-gaming">
+      <div class="project-detail-header-grid">
+        <div class="project-detail-visual">
+          <img src="assets/projects/jivan-gaming.png" alt="Jivan Gaming Platform">
+        </div>
+        <div class="project-detail-meta">
+          <span class="project-tag">Full Stack & Freelance Development</span>
+          <h2 style="font-size: 24px; margin-bottom: 10px; font-family: var(--font-heading);">Jivan Gaming Portal (jivangaming.in)</h2>
+          <div class="project-tagline" style="font-size: 15px; margin-bottom: 20px; color: var(--accent-secondary);">Deployed Live Production Web Application</div>
+          
+          <div class="project-metrics" style="margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="metric-tag">React Frontend</span>
+            <span class="metric-tag">Node.js & PHP</span>
+            <span class="metric-tag">MySQL Database</span>
+            <span class="metric-tag">Payment Gateways</span>
+          </div>
+          
+          <div style="display: flex; gap: 15px;">
+            <a href="https://jivangaming.in" target="_blank" class="btn btn-primary" style="padding: 8px 20px; font-size: 13px; border-radius: 6px;">View Live Portal</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-detail-body">
+        <h4>Key Accomplishments & Implementation Details</h4>
+        <ul class="project-bullets">
+          <li><strong>Production Deployment:</strong> Developed and launched a custom online gaming community portal and digital items store system, operating live at <strong><a href="https://jivangaming.in" target="_blank" style="color: var(--accent-primary);">jivangaming.in</a></strong>.</li>
+          <li><strong>Secure Payment Pipelines:</strong> Configured checkout APIs and webhooks for payment processing gateways, guaranteeing secure, real-time transaction validations and automatic user order delivery.</li>
+          <li><strong>Database Optimization:</strong> Structured and optimized MySQL relational database variables, queries, and index lookups to maintain quick server response speeds under concurrent active shopper loads.</li>
+          <li><strong>Custom Authentication:</strong> Programmed user signup, session checks, and credentials verification protocols using best-practice password hashing and JSON Web Tokens (JWT) structures.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<img src="assets/projects/ddos-system.png">
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed & Developed by Ritesh Rajput. © 2026. Built with premium design principles.</p>
+  </footer>
 
-<h3>DDoS Protection System</h3>
-
-<p>Behavior based attack mitigation.</p>
-
-</div>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,11 +1,196 @@
-<h1>Cybersecurity Blog</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Ritesh Rajput</title>
+  
+  <meta name="description" content="Technical blog posts by Ritesh Rajput covering cybersecurity topics like DDoS mitigation architectures and Zero-Trust authentication protocols.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    .blog-container {
+      max-width: 900px;
+      margin: 140px auto 80px auto;
+      padding: 0 24px;
+    }
+    
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 30px;
+      transition: var(--transition-spring);
+    }
+    
+    .back-btn:hover {
+      color: var(--accent-secondary);
+      transform: translateX(-3px);
+    }
+    
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .blog-card {
+      padding: 35px;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .blog-meta-tags {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: var(--accent-primary);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    
+    .blog-title {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      transition: var(--transition-spring);
+      font-family: var(--font-heading);
+    }
+    
+    .blog-card:hover .blog-title {
+      color: var(--accent-primary);
+    }
+    
+    .blog-excerpt {
+      font-size: 15px;
+      color: var(--text-sec);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .blog-readmore {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition-spring);
+    }
+    
+    .blog-card:hover .blog-readmore {
+      transform: translateX(4px);
+    }
+    
+    @media (max-width: 768px) {
+      .blog-container {
+        margin-top: 100px;
+      }
+      .blog-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-<a href="blog/ddos-defense.html">
-DDoS Defense Architecture
-</a>
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <h2 onclick="location.href='index.html'">Ritesh Rajput</h2>
+    <ul id="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#skills">Skills</a></li>
+      <li><a href="index.html#developer-stats">GitHub</a></li>
+      <li><a href="index.html#leetcode-stats">LeetCode</a></li>
+      <li><a href="index.html#certifications">Certifications</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    
+    <div class="nav-right">
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Theme">
+        <!-- Sun icon -->
+        <svg class="sun-icon" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <!-- Moon icon -->
+        <svg class="moon-icon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      
+      <!-- Resume Download CTA -->
+      <a href="assets/resume.pdf" download class="btn btn-secondary" style="padding: 8px 16px; font-size: 13.5px; border-radius: 6px;">
+        Resume
+      </a>
+      
+      <!-- Mobile hamburger menu toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
-<br>
+  <!-- BLOG CONTAINER -->
+  <div class="blog-container">
+    <a href="index.html" class="back-btn">← Back to Main Portfolio</a>
+    
+    <h1 style="font-size: 40px; margin-bottom: 45px; text-align: center;">Technical <span>Blog Articles</span></h1>
+    
+    <div class="blog-list">
+      
+      <!-- Article 1 -->
+      <a href="blog/ddos-defense.html" class="blog-card glass-card">
+        <div class="blog-meta-tags">
+          <span>🔒 Network Security</span>
+          <span>•</span>
+          <span>June 20, 2026</span>
+          <span>•</span>
+          <span>6 min read</span>
+        </div>
+        <h2 class="blog-title">Mitigating DDoS Attacks: Behavior-Based Defense Architectures</h2>
+        <p class="blog-excerpt">
+          An in-depth analysis of high-performance DDoS mitigation patterns. Learn how rate-limiting algorithms, signature heuristics, and cloud filtering layers secure scalable APIs from behavioral threats.
+        </p>
+        <span class="blog-readmore">Read Full Post →</span>
+      </a>
 
-<a href="blog/zero-trust-auth.html">
-Zero Trust Authentication
-</a>
+      <!-- Article 2 -->
+      <a href="blog/zero-trust-auth.html" class="blog-card glass-card">
+        <div class="blog-meta-tags">
+          <span>🔑 Authentication</span>
+          <span>•</span>
+          <span>May 14, 2026</span>
+          <span>•</span>
+          <span>5 min read</span>
+        </div>
+        <h2 class="blog-title">Implementing Zero-Trust Authentication with FIDO2 & WebAuthn</h2>
+        <p class="blog-excerpt">
+          Exploring biometric and cryptographic methods to eliminate phishing and credential stuffing. How FIDO2, WebAuthn, and local facial recognition grids provide production-grade authentication models.
+        </p>
+        <span class="blog-readmore">Read Full Post →</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed & Developed by Ritesh Rajput. © 2026. Built with premium design principles.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
