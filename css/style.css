@@ -483,12 +483,25 @@ nav a:hover, nav a.active {
   font-size: 58px;
   margin-bottom: 20px;
   color: var(--text-main);
+  min-height: 150px;
 }
 
 .hero-title-gradient {
   background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#typing::after {
+  content: '|';
+  color: var(--accent-primary);
+  -webkit-text-fill-color: var(--accent-primary);
+  animation: typing-blink 1s step-end infinite;
+}
+
+@keyframes typing-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .hero-description {
@@ -2086,6 +2099,7 @@ footer {
 /* Responsive Overrides */
 @media (max-width: 1024px) {
   h1 { font-size: 48px; }
+  .hero h1 { min-height: 120px; }
   nav { padding: 20px 32px; }
   nav.scrolled { padding: 14px 32px; }
   section { padding: 90px 24px; }
@@ -2110,6 +2124,7 @@ footer {
 
 @media (max-width: 768px) {
   h1 { font-size: 38px; }
+  .hero h1 { min-height: 160px; }
   h2 { font-size: 30px; }
   nav { padding: 16px 24px; }
   
