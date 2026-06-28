@@ -483,13 +483,18 @@ nav a:hover, nav a.active {
   font-size: 58px;
   margin-bottom: 20px;
   color: var(--text-main);
-  min-height: 280px;
 }
 
 .hero-title-gradient {
   background: linear-gradient(135deg, var(--text-main) 30%, var(--accent-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#typing {
+  display: inline-block;
+  min-height: 2.8em;
+  vertical-align: top;
 }
 
 #typing::after {
@@ -2099,7 +2104,6 @@ footer {
 /* Responsive Overrides */
 @media (max-width: 1024px) {
   h1 { font-size: 48px; }
-  .hero h1 { min-height: 240px; }
   nav { padding: 20px 32px; }
   nav.scrolled { padding: 14px 32px; }
   section { padding: 90px 24px; }
@@ -2124,7 +2128,6 @@ footer {
 
 @media (max-width: 768px) {
   h1 { font-size: 38px; }
-  .hero h1 { min-height: 190px; }
   h2 { font-size: 30px; }
   nav { padding: 16px 24px; }
   
