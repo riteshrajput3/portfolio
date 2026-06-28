@@ -2,16 +2,16 @@ const chatWindow = document.getElementById("chat-window");
 const chatInput = document.getElementById("chat-input");
 
 const resumeKnowledge = {
-  automation: "Ritesh engineered an <b>Intelligent Business Process Automation Suite</b> using n8n, Python, and OpenAI APIs. The system automates 8+ end-to-end workflows (such as lead processing, onboarding, and invoicing), reducing manual effort by <b>80%</b> and document processing review times by <b>65%</b> with 92%+ routing accuracy.",
+  automation: "Ritesh automated Incoming Quality Control (IQC) testing procedures with his <b>PCB Testing & Quality Automation</b> project using Python and MATLAB, reducing manual validation times by <b>80%</b>.",
   hackathon: "Ritesh won top ranks at back-to-back hackathons:<br>1. <b>GHR Hack 2.0 (2026) - 3rd Prize</b>: Zero-Trust biometric facial recognition MFA system.<br>2. <b>GHR Hack 1.0 (2025) - Runner-Up</b>: Ethereum Solidity student records ledger with a 35% reduction in blockchain gas execution costs.",
-  internship: "Ritesh's professional background includes:<br><br>• <b>Electronics & Quality Engineer at Ecozen</b> (2026 - Present): Conducting Incoming Quality Control (IQC) component testing, PCB validations, defect analysis, and root cause audits (RCA/CAPA) in India.<br><br>• <b>Full Stack Developer Intern at STSARC</b> (Dec 2025 - Mar 2026): Engineered React interfaces and Node.js microservices, maintaining high API availability.",
+  internship: "Ritesh's professional background includes:<br><br>• <b>Electronics & Quality Engineer at Ecozen</b> (2026 - Present): Conducting Incoming Quality Control (IQC) component testing, PCB validations, defect analysis, and root cause audits (RCA/CAPA) in Pune, India.<br><br>• <b>Full Stack Developer Intern at STSARC</b> (Dec 2025 - Mar 2026): Engineered React interfaces and Node.js microservices, maintaining high API availability.",
   contact: "You can connect with Ritesh directly via:<br>📧 Email: <a href='mailto:rishirajput3924@gmail.com' style='color: var(--accent-primary); text-decoration: underline;'>rishirajput3924@gmail.com</a><br>📱 Phone: +91 8767887417<br>💼 LinkedIn: <a href='https://linkedin.com/in/ritesh-rajput39' target='_blank' style='color: var(--accent-primary); text-decoration: underline;'>/in/ritesh-rajput39</a><br>💻 GitHub: <a href='https://github.com/riteshrajput3' target='_blank' style='color: var(--accent-primary); text-decoration: underline;'>/riteshrajput3</a>",
-  skills: "Ritesh's technical capabilities include:<br>• <b>Cybersecurity</b>: Zero-Trust, Web Security (OWASP Top 10), WebAuthn/FIDO2 protocols, SIEM threat dashboards, penetration checks.<br>• <b>AI & Automation</b>: n8n, OpenAI API integrations, Agentic AI, RAG pipelines.<br>• <b>Blockchain</b>: Solidity smart contracts, Web3.js, Hardhat testing environment, IPFS storage.<br>• <b>Full Stack</b>: Python (Flask, FastAPI), Javascript (React, Node.js), Docker, Git, CI/CD, SQL.",
-  blockchain: "Ritesh built a <b>Decentralized Data Management System</b> using Solidity, Web3.js, and IPFS, providing a secure, tamper-proof student record registry. Optimized variables to cut execution gas fees by 35%, winning Runner-Up at GHR Hack 1.0 (2025).",
-  mfa: "Ritesh's <b>Passwordless MFA System</b> is a Zero-Trust biometric face recognition portal mitigating credential-stuffing and phishing threats, featuring AES-256 local encrypted storage. Earning 3rd Prize at GHR Hack 2.0 (2026).",
-  education: "Ritesh is pursuing a <b>B.Tech in Electronics and Telecommunication Engineering</b> at G.H. Raisoni College of Engineering and Management (CGPA: 7.69/10.0, expected graduation July 2026). He holds an Ethical Hacking certification from IIT Bombay and is active in TryHackMe rooms.",
-  drone: "Ritesh served as <b>President of the GHCEM Drone Club</b> (2024 - 2025). He led a 25-member engineering team, managed budgeting and inventory for electronics, fabricated 3 autonomous drone prototypes, and taught hardware design to 100+ students.",
-  jivan: "Ritesh worked as a <b>Freelance Full Stack Developer</b> to design, develop, and launch <b><a href='https://jivangaming.in' target='_blank' style='color: var(--accent-primary); text-decoration: underline;'>jivangaming.in</a></b>. He built the platform using React, Node.js, and PHP, optimized MySQL database queries, and integrated secure payment processing."
+  skills: "Ritesh's technical capabilities include:<br>• <b>Embedded Systems</b>: ESP32, STM32, Arduino, low-level drivers, SPI/I2C/UART, RTOS, PCB testing.<br>• <b>Cybersecurity</b>: Zero-Trust, WebAuthn/FIDO2, AES-256-GCM, Secure Firmware, SIEM threat logging.<br>• <b>AI & Automation</b>: OpenCV, YOLO models, TensorFlow, n8n workflow engine, RAG pipelines.<br>• <b>Full Stack</b>: Python (FastAPI), Javascript (React, Node.js), Docker, Git, CI/CD, SQL.",
+  blockchain: "Ritesh built a <b>Decentralized Student Records Registry</b> using Solidity, Web3.js, and IPFS, providing a secure, tamper-proof student record ledger. Optimized variables to cut execution gas fees by 35%, winning Runner-Up at GHR Hack 1.0 (2025).",
+  mfa: "Ritesh's <b>Zero-Trust Passwordless MFA System</b> is a phishing-resistant biometric face recognition portal mitigating credential-stuffing threats, featuring local OpenCV template matching and AES-256-GCM encryption. Earning 3rd Prize at GHR Hack 2.0 (2026).",
+  education: "Ritesh is pursuing a <b>B.Tech in Electronics and Telecommunication Engineering</b> at G.H. Raisoni College of Engineering and Management (CGPA: 7.69/10.0, expected graduation July 2026). He holds an Ethical Hacking certification from IIT Bombay.",
+  drone: "Ritesh engineered an <b>Autonomous Drone Detection System</b> combining OpenCV/YOLOv8 visual classification and RF spectrum scanning (under 45ms latency). He also served as the <b>President of GHCEM Drone Club</b> (2024 - 2025) leading a 25-member engineering team.",
+  jivan: "Ritesh developed a high-throughput <b>Industrial IoT Telemetry Platform</b> reading multi-sensor matrices over MQTT. He also deployed the online gaming portal <b><a href='https://jivangaming.in' target='_blank' style='color: var(--accent-primary); text-decoration: underline;'>jivangaming.in</a></b> using React, Node.js, and PHP."
 };
 
 function addBubble(text, sender) {
@@ -39,15 +39,17 @@ function showTypingIndicator() {
 
 function processBotReply(userMsg) {
   const query = userMsg.toLowerCase();
-  let reply = "I can share details about Ritesh's background. Try asking me about his 'n8n project', 'jivangaming.in', 'hackathons', 'internship', 'technical skills', or click one of the suggestion chips below.";
+  let reply = "I can share details about Ritesh's background. Try asking me about his 'drone detection', 'pcb automation', 'passwordless mfa', 'iot telemetry', 'hackathons', 'skills', or click one of the suggestion chips below.";
   
-  if (query.includes("n8n") || query.includes("automation") || query.includes("workflow") || query.includes("suite")) {
+  if (query.includes("drone") || query.includes("detection") || query.includes("aircraft") || query.includes("visual")) {
+    reply = resumeKnowledge.drone;
+  } else if (query.includes("pcb") || query.includes("automation") || query.includes("quality") || query.includes("incoming")) {
     reply = resumeKnowledge.automation;
-  } else if (query.includes("jivan") || query.includes("gaming") || query.includes("jivangaming")) {
+  } else if (query.includes("jivan") || query.includes("telemetry") || query.includes("iot") || query.includes("mqtt") || query.includes("gaming")) {
     reply = resumeKnowledge.jivan;
   } else if (query.includes("hackathon") || query.includes("ghr hack") || query.includes("prize") || query.includes("winner") || query.includes("award")) {
     reply = resumeKnowledge.hackathon;
-  } else if (query.includes("intern") || query.includes("stsarc") || query.includes("experience") || query.includes("job") || query.includes("ecozen") || query.includes("quality")) {
+  } else if (query.includes("intern") || query.includes("stsarc") || query.includes("experience") || query.includes("job") || query.includes("ecozen")) {
     reply = resumeKnowledge.internship;
   } else if (query.includes("contact") || query.includes("email") || query.includes("phone") || query.includes("reach") || query.includes("call")) {
     reply = resumeKnowledge.contact;

@@ -19,9 +19,11 @@
     <ul id="nav-menu">
       <li><a href="#home" class="active">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#domains">Domains</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#developer-stats">GitHub</a></li>
       <li><a href="#leetcode-stats">LeetCode</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -43,7 +45,7 @@
       </button>
       
       <!-- Resume Download CTA -->
-      <a href="assets/resume.pdf" download class="btn btn-secondary" style="padding: 8px 16px; font-size: 13.5px; border-radius: 6px;">
+      <a href="assets/Cv@Ritesh_Rajput.pdf" download class="btn btn-secondary" style="padding: 8px 16px; font-size: 13.5px; border-radius: 6px;">
         Resume
       </a>
       
@@ -60,18 +62,18 @@
   <section class="hero" id="home">
     <div class="hero-content reveal-element">
       <div class="hero-badge">Open to Opportunities</div>
-      <h3>Hello, I'm Ritesh Rajput</h3>
+      <h3>Embedded Systems & Software Engineer</h3>
       <h1>
-        Building Secure, Intelligent<br>
+        Building Intelligent Hardware,<br>
         <span class="hero-title-gradient" id="typing"></span>
       </h1>
       <p class="hero-description">
-        I develop embedded products, intelligent automation, and scalable software solutions. Combining electronic quality engineering with robust software design to create secure IoT, robotic, and full-stack architectures.
+        Electronics Engineer specializing in embedded systems, IoT, AI-powered automation, cybersecurity fundamentals, and modern software engineering. Passionate about designing secure, intelligent, and high-performance systems from hardware to cloud.
       </p>
       
       <div class="hero-ctas">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="assets/resume.pdf" download class="btn btn-secondary">
+        <a href="#projects" class="btn btn-primary">Explore Engineering Work</a>
+        <a href="assets/Cv@Ritesh_Rajput.pdf" download class="btn btn-secondary">
           Download Resume
         </a>
         <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -110,8 +112,17 @@
           <div class="workspace-tab active" data-tab="terminal" id="tab-terminal">
             <span class="workspace-tab-icon">🐚</span> terminal.sh
           </div>
+          <div class="workspace-tab" data-tab="hardware" id="tab-hardware">
+            <span class="workspace-tab-icon">📐</span> hardware/
+          </div>
+          <div class="workspace-tab" data-tab="security" id="tab-security">
+            <span class="workspace-tab-icon">📟</span> security.log
+          </div>
           <div class="workspace-tab" data-tab="chat" id="tab-chat">
-            <span class="workspace-tab-icon">🤖</span> ask_ai.py
+            <span class="workspace-tab-icon">🤖</span> ai_model.py
+          </div>
+          <div class="workspace-tab" data-tab="firmware" id="tab-firmware">
+            <span class="workspace-tab-icon">📡</span> firmware.c
           </div>
           <div class="workspace-tab" data-tab="config" id="tab-config">
             <span class="workspace-tab-icon">⚙️</span> config.json
@@ -130,17 +141,51 @@
             </div>
           </div>
           
+          <!-- Hardware Diagram Panel -->
+          <div class="workspace-panel" id="panel-hardware">
+            <div id="hardware-view">
+              <pre class="hardware-schematic">
++-------------------------------------------------------------+
+|                     SYSTEM BLOCK DIAGRAM                    |
+|                                                             |
+|  +-------------------+       I2C      +------------------+  |
+|  |     MPU-6050      | <------------> |  ESP32 MCU Core  |  |
+|  |   IMU Sensor      |                |  (Dual-core @    |  |
+|  +-------------------+                |   240MHz, RTOS)  |  |
+|                                       +------------------+  |
+|  +-------------------+       SPI               |            |
+|  |    RF Transceiver | <------------>          |            |
+|  |    (LoRa/FSK)     |                         | SPI        |
+|  +-------------------+                         v            |
+|                                       +------------------+  |
+|  +-------------------+     SPI/GPIO   |  MicroSD Logger  |  |
+|  |  W5500 Ethernet   | <------------> |  (Telemetry Log) |  |
+|  +-------------------+                +------------------+  |
+|                                                             |
++-------------------------------------------------------------+
+|  Power: 3.3V LDO | Signal Isolation | ESD Protection Array  |
++-------------------------------------------------------------+</pre>
+            </div>
+          </div>
+          
+          <!-- Security Log Panel -->
+          <div class="workspace-panel" id="panel-security-log">
+            <div id="security-log">
+              <!-- Logs will scroll dynamically here -->
+            </div>
+          </div>
+          
           <!-- Chatbot Panel -->
           <div class="workspace-panel" id="panel-chat">
             <div id="chat-window">
               <div class="chat-bubble bot">
-                Hi! I'm Ritesh's automated assistant. Ask me about my projects, skills, drone club, or how to get in touch.
+                Hi! I'm Ritesh's automated assistant. Ask me about my drone detection project, PCB automation, firmware drivers, or how to get in touch.
               </div>
             </div>
             
             <div class="chatbot-chips-container" id="chat-chips">
-              <span class="chat-chip" onclick="sendChipText('Tell me about your n8n automation project')">n8n Automation</span>
-              <span class="chat-chip" onclick="sendChipText('What did you build for GHR Hack 2.0?')">GHR Hack 2.0</span>
+              <span class="chat-chip" onclick="sendChipText('Tell me about your Drone Detection project')">Drone Detection</span>
+              <span class="chat-chip" onclick="sendChipText('What is the PCB Testing Automation project?')">PCB Automation</span>
               <span class="chat-chip" onclick="sendChipText('What was your internship role at STSARC?')">STSARC Internship</span>
               <span class="chat-chip" onclick="sendChipText('Show your contact details')">Contact Details</span>
             </div>
@@ -148,6 +193,38 @@
             <div class="chatbot-input-area">
               <input type="text" id="chat-input" placeholder="Ask about projects, skills, experience...">
               <button onclick="sendMessage()" aria-label="Send Message">Send</button>
+            </div>
+          </div>
+          
+          <!-- Firmware Panel -->
+          <div class="workspace-panel" id="panel-firmware">
+            <div id="firmware-view">
+              <pre><code><span class="code-comment">// ESP32 firmware driver polling sensor registers via SPI</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;SPI.h&gt;</span>
+<span class="code-keyword">#define</span> REG_SENSOR_DATA 0x42
+<span class="code-keyword">#define</span> PIN_CS 15
+
+<span class="code-type">void</span> setup() {
+  SPI.begin();
+  pinMode(PIN_CS, OUTPUT);
+  digitalWrite(PIN_CS, HIGH);
+  Serial.begin(115200);
+}
+
+<span class="code-type">uint16_t</span> readSensor() {
+  digitalWrite(PIN_CS, LOW);
+  SPI.transfer(REG_SENSOR_DATA);
+  <span class="code-type">uint8_t</span> high = SPI.transfer(0x00);
+  <span class="code-type">uint8_t</span> low = SPI.transfer(0x00);
+  digitalWrite(PIN_CS, HIGH);
+  <span class="code-keyword">return</span> (high &lt;&lt; 8) | low;
+}
+
+<span class="code-type">void</span> loop() {
+  <span class="code-type">uint16_t</span> val = readSensor();
+  Serial.printf(<span class="code-string">"Sensor Value: %d\n"</span>, val);
+  delay(100);
+}</code></pre>
             </div>
           </div>
           
@@ -229,31 +306,122 @@
           I am an Electronics & Quality Engineer and Developer specializing in embedded products, intelligent automation, and cybersecurity. Combining a B.Tech background in Electronics and Telecommunication with custom full-stack and blockchain software skills, I design secure, high-performance systems with automated monitoring workflows.
         </p>
         
-        <ul class="about-details">
-          <li><strong>Location:</strong> Pune, India</li>
-          <li><strong>Degree:</strong> B.Tech in Electronics & Telecom (Expected 2026)</li>
-          <li><strong>Drone Club:</strong> President (GHCEM • 2024 - 2025)</li>
-          <li><strong>Research Focus:</strong> Zero-Trust Hardware & Software Security</li>
-        </ul>
-        
-        <div class="about-stats">
-          <div class="about-stat-box glass-card">
-            <div class="about-stat-num">2+</div>
-            <div class="about-stat-label">Years Exp</div>
+        <div class="about-info-grid">
+          <div class="about-info-card">
+            <div class="about-info-title">Location</div>
+            <div class="about-info-val">Pune, Maharashtra, India</div>
           </div>
-          <div class="about-stat-box glass-card">
-            <div class="about-stat-num">12+</div>
-            <div class="about-stat-label">Projects</div>
+          <div class="about-info-card">
+            <div class="about-info-title">Education</div>
+            <div class="about-info-val">B.Tech Electronics & Telecom</div>
           </div>
-          <div class="about-stat-box glass-card">
-            <div class="about-stat-num">24+</div>
-            <div class="about-stat-label">GitHub Repos</div>
+          <div class="about-info-card">
+            <div class="about-info-title">Current Role</div>
+            <div class="about-info-val">Electronics & Quality Engineer</div>
           </div>
-          <div class="about-stat-box glass-card">
-            <div class="about-stat-num">25+</div>
-            <div class="about-stat-label">Technologies</div>
+          <div class="about-info-card">
+            <div class="about-info-title">Research Focus</div>
+            <div class="about-info-val">Zero-Trust & Embedded Security</div>
+          </div>
+          <div class="about-info-card">
+            <div class="about-info-title">Years Experience</div>
+            <div class="about-info-val">2+ Years (Hardware & Software)</div>
+          </div>
+          <div class="about-info-card">
+            <div class="about-info-title">Projects</div>
+            <div class="about-info-val">12+ Completed Implementations</div>
+          </div>
+          <div class="about-info-card">
+            <div class="about-info-title">Repositories</div>
+            <div class="about-info-val">24+ Active Source Repos</div>
+          </div>
+          <div class="about-info-card">
+            <div class="about-info-title">Technologies</div>
+            <div class="about-info-val">25+ Embedded & Web Tools</div>
           </div>
         </div>
+
+        <div class="about-focus-section">
+          <div class="about-focus-title">Current Focus</div>
+          <div class="focus-badges">
+            <span class="skill-badge">Embedded Systems</span>
+            <span class="skill-badge">AI Automation</span>
+            <span class="skill-badge">IoT</span>
+            <span class="skill-badge">Cybersecurity</span>
+            <span class="skill-badge">Process Automation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING DOMAINS SECTION -->
+  <section id="domains">
+    <div class="section-title reveal-element">
+      <h2>Engineering <span>Domains</span></h2>
+    </div>
+    
+    <div class="domains-grid reveal-element">
+      <!-- Domain 1 -->
+      <div class="domain-card glass-card">
+        <span class="domain-card-icon">🔌</span>
+        <h3>Embedded Systems</h3>
+        <p style="font-size: 14.5px; color: var(--text-sec); margin-bottom: 20px;">Designing and deploying microcontrollers, RTOS kernels, low-level bus configurations, and physical sensor interfaces.</p>
+        <ul class="domain-list">
+          <li class="domain-badge">ESP32</li>
+          <li class="domain-badge">STM32</li>
+          <li class="domain-badge">Arduino</li>
+          <li class="domain-badge">C/C++</li>
+          <li class="domain-badge">RTOS</li>
+          <li class="domain-badge">SPI/I2C/UART</li>
+          <li class="domain-badge">PCB Testing</li>
+        </ul>
+      </div>
+      
+      <!-- Domain 2 -->
+      <div class="domain-card glass-card">
+        <span class="domain-card-icon">🤖</span>
+        <h3>Artificial Intelligence</h3>
+        <p style="font-size: 14.5px; color: var(--text-sec); margin-bottom: 20px;">Integrating neural network models, edge computing, computer vision classification, and workflow agent architectures.</p>
+        <ul class="domain-list">
+          <li class="domain-badge">OpenCV</li>
+          <li class="domain-badge">YOLO</li>
+          <li class="domain-badge">TensorFlow</li>
+          <li class="domain-badge">LLM APIs</li>
+          <li class="domain-badge">n8n Engine</li>
+          <li class="domain-badge">RAG Pipelines</li>
+        </ul>
+      </div>
+      
+      <!-- Domain 3 -->
+      <div class="domain-card glass-card">
+        <span class="domain-card-icon">🔒</span>
+        <h3>Cybersecurity</h3>
+        <p style="font-size: 14.5px; color: var(--text-sec); margin-bottom: 20px;">Implementing cryptographic standards, passwordless biometrics, vulnerability mitigations, and security telemetry logs.</p>
+        <ul class="domain-list">
+          <li class="domain-badge">Zero-Trust</li>
+          <li class="domain-badge">WebAuthn</li>
+          <li class="domain-badge">AES-256</li>
+          <li class="domain-badge">OWASP Top 10</li>
+          <li class="domain-badge">SIEM Pings</li>
+          <li class="domain-badge">TLS 1.3</li>
+        </ul>
+      </div>
+      
+      <!-- Domain 4 -->
+      <div class="domain-card glass-card">
+        <span class="domain-card-icon">🖥️</span>
+        <h3>Software Engineering</h3>
+        <p style="font-size: 14.5px; color: var(--text-sec); margin-bottom: 20px;">Constructing scalable server APIs, high-availability databases, automated deployment containers, and modular full-stack views.</p>
+        <ul class="domain-list">
+          <li class="domain-badge">Python</li>
+          <li class="domain-badge">JavaScript</li>
+          <li class="domain-badge">React</li>
+          <li class="domain-badge">Node.js</li>
+          <li class="domain-badge">FastAPI</li>
+          <li class="domain-badge">Docker</li>
+          <li class="domain-badge">MySQL</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -374,23 +542,23 @@
       <!-- Project 1 (Featured - Large span) -->
       <div class="project-card featured glass-card">
         <div class="project-img-wrapper">
-          <img src="assets/projects/automation-suite.png" alt="Automation Suite" class="project-img">
+          <img src="assets/projects/automation-suite.png" alt="Autonomous Drone Detection System" class="project-img">
         </div>
         <div class="project-content">
-          <span class="project-tag">AI & Automation</span>
-          <h3 class="project-title">Intelligent Business Process Automation</h3>
-          <div class="project-tagline">80% Operational Effort Reduction</div>
+          <span class="project-tag">Embedded AI & Robotics</span>
+          <h3 class="project-title">Autonomous Drone Detection System</h3>
+          <div class="project-tagline">Real-time RF & Computer Vision Fusion</div>
           <div class="project-metrics">
-            <span class="metric-tag">8 Workflows</span>
-            <span class="metric-tag">92% Routing Accuracy</span>
-            <span class="metric-tag">n8n Engine</span>
+            <span class="metric-tag">96.4% Detection</span>
+            <span class="metric-tag">&lt;45ms Latency</span>
+            <span class="metric-tag">YOLOv8 & RF Triage</span>
           </div>
           <p class="project-desc">
-            Architected a modular, event-driven automation platform using n8n and Python, orchestrating lead capture, document processing, and multi-channel notifications. Integrated OpenAI APIs for intelligent classification and analysis.
+            Designed a dual-triage drone detection security system combining OpenCV/YOLOv8 visual classification with RF spectrum signal analysis. Orchestrated alerting workflows to log unauthorized flights.
           </p>
           <div class="project-links">
             <a href="https://github.com/riteshrajput3" target="_blank" class="project-link-btn">Codebase</a>
-            <a href="projects.html#automation-suite" class="project-link-btn">Case Study →</a>
+            <a href="projects.html#drone-detection" class="project-link-btn">Case Study →</a>
           </div>
         </div>
       </div>
@@ -398,23 +566,23 @@
       <!-- Project 2 -->
       <div class="project-card glass-card">
         <div class="project-img-wrapper">
-          <img src="assets/projects/cyber-workflows.png" alt="Cybersecurity Workflows" class="project-img">
+          <img src="assets/projects/cyber-workflows.png" alt="PCB Testing & Quality Automation" class="project-img">
         </div>
         <div class="project-content">
-          <span class="project-tag">Cybersecurity</span>
-          <h3 class="project-title">AI-Powered Threat Intel Automation</h3>
-          <div class="project-tagline">70% Faster Threat Response</div>
+          <span class="project-tag">Embedded Systems</span>
+          <h3 class="project-title">PCB Testing & Quality Automation</h3>
+          <div class="project-tagline">Streamlined R&D Hardware Verification</div>
           <div class="project-metrics">
-            <span class="metric-tag">5+ Data Feeds</span>
-            <span class="metric-tag">70% MTTR Reduction</span>
-            <span class="metric-tag">SecOps Pipeline</span>
+            <span class="metric-tag">80% Test Speedup</span>
+            <span class="metric-tag">IQC Validation</span>
+            <span class="metric-tag">MATLAB & Python</span>
           </div>
           <p class="project-desc">
-            Built automated threat intelligence and triage pipelines using n8n, Python, and agentic workflows. Orchestrates log ingestion, priority alert routing, and CVE parsing with SIEM databases.
+            Automated electronic testing and incoming quality control validation pipelines. Built custom scripting interfaces to capture oscilloscope telemetry, check specs, and log root-cause analysis.
           </p>
           <div class="project-links">
             <a href="https://github.com/riteshrajput3" target="_blank" class="project-link-btn">Codebase</a>
-            <a href="projects.html#cyber-workflows" class="project-link-btn">Case Study →</a>
+            <a href="projects.html#pcb-automation" class="project-link-btn">Case Study →</a>
           </div>
         </div>
       </div>
@@ -422,23 +590,23 @@
       <!-- Project 3 -->
       <div class="project-card glass-card">
         <div class="project-img-wrapper">
-          <img src="assets/projects/mfa-system.png" alt="MFA System" class="project-img">
+          <img src="assets/projects/mfa-system.png" alt="Zero-Trust Passwordless MFA" class="project-img">
         </div>
         <div class="project-content">
-          <span class="project-tag">Security & Biometrics</span>
-          <h3 class="project-title">Passwordless Facial MFA System</h3>
-          <div class="project-tagline">3rd Prize, GHR Hack 2.0 (2026)</div>
+          <span class="project-tag">Cybersecurity</span>
+          <h3 class="project-title">Zero-Trust Passwordless MFA</h3>
+          <div class="project-tagline">Phishing-Resistant Biometric Authentication</div>
           <div class="project-metrics">
-            <span class="metric-tag">AES-256 Storage</span>
-            <span class="metric-tag">Zero-Trust Auth</span>
+            <span class="metric-tag">FIDO2/WebAuthn</span>
+            <span class="metric-tag">AES-256-GCM</span>
             <span class="metric-tag">OpenCV & Flask</span>
           </div>
           <p class="project-desc">
-            Designed a phishing-resistant biometric authentication system that eliminates passwords. Implemented secure facial template matching with OpenCV, secured with local AES-256 encryption.
+            Implemented a secure, passwordless authentication system using local facial verification templates. Features hardware-bound security flows and local cryptographic database encryption.
           </p>
           <div class="project-links">
             <a href="https://github.com/riteshrajput3" target="_blank" class="project-link-btn">Codebase</a>
-            <a href="projects.html#mfa-system" class="project-link-btn">Case Study →</a>
+            <a href="projects.html#passwordless-auth" class="project-link-btn">Case Study →</a>
           </div>
         </div>
       </div>
@@ -446,23 +614,23 @@
       <!-- Project 4 -->
       <div class="project-card glass-card">
         <div class="project-img-wrapper">
-          <img src="assets/projects/blockchain-records.png" alt="Blockchain Student Records" class="project-img">
+          <img src="assets/projects/blockchain-records.png" alt="AI PCB Defect Classifier" class="project-img">
         </div>
         <div class="project-content">
-          <span class="project-tag">Blockchain & Web3</span>
-          <h3 class="project-title">Decentralized Academic Ledger</h3>
-          <div class="project-tagline">Runner-Up, GHR Hack 1.0 (2025)</div>
+          <span class="project-tag">Artificial Intelligence</span>
+          <h3 class="project-title">AI PCB Defect Classifier</h3>
+          <div class="project-tagline">Real-time Solder & Component Inspection</div>
           <div class="project-metrics">
-            <span class="metric-tag">Solidity</span>
-            <span class="metric-tag">IPFS Integration</span>
-            <span class="metric-tag">35% Gas Optimized</span>
+            <span class="metric-tag">98.2% Accuracy</span>
+            <span class="metric-tag">TensorFlow/YOLO</span>
+            <span class="metric-tag">Industrial Edge</span>
           </div>
           <p class="project-desc">
-            Developed a tamper-proof blockchain-based student records system using Ethereum smart contracts and IPFS. Optimized smart contract execution variables to reduce blockchain gas usage by 35%.
+            Engineered an automated optical inspection (AOI) model to classify PCB solder anomalies and component placement defects. Runs edge-quantized classification on low-power devices.
           </p>
           <div class="project-links">
             <a href="https://github.com/riteshrajput3" target="_blank" class="project-link-btn">Codebase</a>
-            <a href="projects.html#blockchain-records" class="project-link-btn">Case Study →</a>
+            <a href="projects.html#ai-vision" class="project-link-btn">Case Study →</a>
           </div>
         </div>
       </div>
@@ -470,23 +638,23 @@
       <!-- Project 5 -->
       <div class="project-card glass-card">
         <div class="project-img-wrapper">
-          <img src="assets/projects/jivan-gaming.png" alt="Jivan Gaming Platform" class="project-img">
+          <img src="assets/projects/jivan-gaming.png" alt="Industrial IoT Telemetry Platform" class="project-img">
         </div>
         <div class="project-content">
-          <span class="project-tag">Full Stack & Freelance</span>
-          <h3 class="project-title">Jivan Gaming (jivangaming.in)</h3>
-          <div class="project-tagline">Deployed Production Gaming Portal</div>
+          <span class="project-tag">IoT & Software Engineering</span>
+          <h3 class="project-title">Industrial IoT Telemetry Platform</h3>
+          <div class="project-tagline">High-Throughput MQTT Telemetry Pipeline</div>
           <div class="project-metrics">
-            <span class="metric-tag">React / Node.js</span>
-            <span class="metric-tag">MySQL Database</span>
-            <span class="metric-tag">Live Host</span>
+            <span class="metric-tag">React & FastAPI</span>
+            <span class="metric-tag">MQTT Broker</span>
+            <span class="metric-tag">Under 10ms Latency</span>
           </div>
           <p class="project-desc">
-            Designed, built, and launched a production web portal and game shop. Managed database integration, optimized page retrieval latency, and configured payment pipelines for secure user digital transactions.
+            Developed a high-availability telemetry dashboard monitoring sensor matrices over MQTT. Integrated live graphs, trigger thresholds, and historical logging logs with under 10ms data latency.
           </p>
           <div class="project-links">
-            <a href="https://jivangaming.in" target="_blank" class="project-link-btn">Live Portal</a>
-            <a href="projects.html#jivan-gaming" class="project-link-btn">Case Study →</a>
+            <a href="https://github.com/riteshrajput3" target="_blank" class="project-link-btn">Codebase</a>
+            <a href="projects.html#iot-monitoring" class="project-link-btn">Case Study →</a>
           </div>
         </div>
       </div>
@@ -621,6 +789,52 @@
           <span class="skill-badge">SAP</span>
           <span class="skill-badge">Hardhat</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & INTERESTS SECTION -->
+  <section id="research">
+    <div class="section-title reveal-element">
+      <h2>Research & <span>Interests</span></h2>
+    </div>
+    
+    <div class="research-grid reveal-element">
+      <!-- Research 1 -->
+      <div class="research-card glass-card">
+        <span class="research-icon">🛸</span>
+        <h3 class="research-title">Embedded AI & Robotics</h3>
+        <p style="font-size: 14px; color: var(--text-sec); margin-top: 10px;">Running quantized computer vision models directly on microcontrollers for real-time edge processing.</p>
+      </div>
+      
+      <!-- Research 2 -->
+      <div class="research-card glass-card">
+        <span class="research-icon">🛡️</span>
+        <h3 class="research-title">Hardware Security</h3>
+        <p style="font-size: 14px; color: var(--text-sec); margin-top: 10px;">Securing IoT firmware against side-channel analysis and unauthorized memory dumping vulnerabilities.</p>
+      </div>
+      
+      <!-- Research 3 -->
+      <div class="research-card glass-card">
+        <span class="research-icon">🌐</span>
+        <h3 class="research-title">Industrial Automation</h3>
+        <p style="font-size: 14px; color: var(--text-sec); margin-top: 10px;">Integrating MQTT sensor matrices, predictive calibration workflows, and zero-downtime control loops.</p>
+      </div>
+    </div>
+    
+    <!-- Interests Badges Container -->
+    <div class="glass-card reveal-element" style="padding: 30px; margin-top: 30px; text-align: center;">
+      <h4 style="font-size: 16px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-main); margin-bottom: 20px;">Engineering Core Focus Areas</h4>
+      <div class="focus-badges" style="justify-content: center;">
+        <span class="skill-badge">Embedded AI</span>
+        <span class="skill-badge">Edge Computing</span>
+        <span class="skill-badge">Hardware Security</span>
+        <span class="skill-badge">Industrial Automation</span>
+        <span class="skill-badge">IoT Security</span>
+        <span class="skill-badge">Secure Firmware</span>
+        <span class="skill-badge">Digital Twin Systems</span>
+        <span class="skill-badge">Low-Power Embedded Systems</span>
+        <span class="skill-badge">Robotics</span>
       </div>
     </div>
   </section>
@@ -840,6 +1054,13 @@
         <h3>Let's Build Something <span>Secure & Smart</span></h3>
         <p>I am always open to discussing engineering roles, drone systems, AI workflows, or collaborative software developments.</p>
         
+        <div class="availability-grid">
+          <span class="avail-badge active">● Full-time Roles</span>
+          <span class="avail-badge active">● Research Internships</span>
+          <span class="avail-badge">● Collaborations</span>
+          <span class="avail-badge">● Freelance</span>
+        </div>
+        
         <div class="contact-grid">
           <a href="mailto:rishirajput3924@gmail.com" class="contact-item">
             <span class="contact-icon">📧</span>
@@ -868,7 +1089,7 @@
         
         <div class="contact-ctas-row">
           <a href="mailto:rishirajput3924@gmail.com" class="btn btn-primary">Schedule a 15-min Chat</a>
-          <a href="assets/resume.pdf" download class="btn btn-secondary">Get PDF Resume</a>
+          <a href="assets/Cv@Ritesh_Rajput.pdf" download class="btn btn-secondary">Get PDF Resume</a>
         </div>
       </div>
     </div>

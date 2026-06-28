@@ -54,10 +54,10 @@ function processCommand(cmdText) {
       break;
       
     case "whoami":
-      printLine("Ritesh Rajput - Electronics & Quality Engineer | Full Stack & Security Developer");
+      printLine("Ritesh Rajput - Electronics & Quality Engineer | Embedded Systems & Security Developer");
       printLine("Currently working as an Electronics & Quality Engineer at Ecozen.");
       printLine("Pursuing B.Tech in Electronics and Telecommunication at GHCEM (Expected July 2026).");
-      printLine("Passionate about automating processes, developing embedded systems, and building secure software.");
+      printLine("Passionate about low-level hardware validation, edge AI, and zero-trust firmware security.");
       break;
 
     case "experience":
@@ -75,20 +75,19 @@ function processCommand(cmdText) {
       
     case "skills":
       printLine("<b>[Technical Skills]</b>");
-      printLine("<span style='color: var(--accent-primary);'>Cybersecurity:</span> Zero-Trust Architecture, OWASP Web Security, FIDO2/WebAuthn, SIEM, Pen Testing");
-      printLine("<span style='color: var(--accent-primary);'>AI & Automation:</span> n8n workflows, Agentic AI, OpenAI API integrations, LLM RAG pipelines");
-      printLine("<span style='color: var(--accent-primary);'>Blockchain:</span> Solidity smart contracts, Web3.js, Hardhat testing environment, IPFS");
-      printLine("<span style='color: var(--accent-primary);'>Full Stack:</span> Python (FastAPI/Flask), Javascript (React, Node.js), Docker, Git, CI/CD, MySQL");
-      printLine("<span style='color: var(--accent-primary);'>Embedded:</span> C, C++, ESP32, Arduino, STM32, PCB Testing, MATLAB");
+      printLine("<span style='color: var(--accent-primary);'>Embedded:</span> C, C++, ESP32, STM32, Arduino, low-level bus specs, RTOS, PCB testing");
+      printLine("<span style='color: var(--accent-primary);'>Cybersecurity:</span> Zero-Trust, WebAuthn/FIDO2, AES-256-GCM, Secure Firmware, SIEM logs");
+      printLine("<span style='color: var(--accent-primary);'>AI & Automation:</span> OpenCV, YOLO models, TensorFlow, n8n, workflow scripting");
+      printLine("<span style='color: var(--accent-primary);'>Software Eng:</span> Python (FastAPI), JavaScript (React, Node.js), Nginx, Docker, SQL");
       break;
       
     case "projects":
       printLine("<b>[Featured Projects]</b>");
-      printLine("<span style='color: var(--accent-primary);'>1. Intelligent Automation Suite</span> - n8n and OpenAI integration reducing operational efforts by 80%.");
-      printLine("<span style='color: var(--accent-primary);'>2. Cybersecurity AI Workflows</span> - Automated threat triage pipelines reducing MTTR by 70%.");
-      printLine("<span style='color: var(--accent-primary);'>3. Passwordless MFA</span> - Zero-Trust facial biometrics with Flask & OpenCV (3rd Prize, GHR Hack 2.0).");
-      printLine("<span style='color: var(--accent-primary);'>4. Decentralized Records Ledger</span> - Immutable Solidity data ledger (Runner-Up, GHR Hack 1.0).");
-      printLine("<span style='color: var(--accent-primary);'>5. Jivan Gaming (jivangaming.in)</span> - Custom freelance gaming community portal & payment gateways.");
+      printLine("<span style='color: var(--accent-primary);'>1. Autonomous Drone Detection</span> - OpenCV/YOLOv8 and RF sensor fusion tracking unauthorized flights.");
+      printLine("<span style='color: var(--accent-primary);'>2. PCB Quality Automation</span> - Automated test jigs and oscilloscope telemetry validating custom hardware.");
+      printLine("<span style='color: var(--accent-primary);'>3. Zero-Trust Facial MFA</span> - Passwordless identity portal with local AES-256 encrypted verification.");
+      printLine("<span style='color: var(--accent-primary);'>4. AI PCB Defect Classifier</span> - Real-time component quality check and classification via TensorFlow.");
+      printLine("<span style='color: var(--accent-primary);'>5. Industrial IoT Telemetry</span> - High-speed MQTT acquisition pipeline monitoring sensor matrices.");
       break;
       
     case "education":

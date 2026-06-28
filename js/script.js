@@ -171,8 +171,14 @@ function initWorkspace() {
       if (titleDisplay) {
         let filename = 'terminal.sh';
         let userMachine = 'ritesh@embedded-core';
-        if (targetTab === 'chat') {
-          filename = 'ask_ai.py';
+        if (targetTab === 'hardware') {
+          filename = 'hardware/';
+        } else if (targetTab === 'security') {
+          filename = 'security.log';
+        } else if (targetTab === 'chat') {
+          filename = 'ai_model.py';
+        } else if (targetTab === 'firmware') {
+          filename = 'firmware.c';
         } else if (targetTab === 'config') {
           filename = 'config.json';
         }
@@ -483,6 +489,70 @@ async function fetchLeetCodeData() {
   }
 }
 
+// SECURITY LOG LIVE SIMULATION LOOP
+function startSecurityLogLoop() {
+  const logContainer = document.getElementById('security-log');
+  if (!logContainer) return;
+
+  const templates = [
+    { status: 'success', msg: 'Secure handshake verified with client device.' },
+    { status: 'success', msg: 'TLS 1.3 session established successfully.' },
+    { status: 'success', msg: 'User session signature WebAuthn validated.' },
+    { status: 'warn', msg: 'Port scan detected from IP 192.168.1.105.' },
+    { status: 'success', msg: 'Incoming API request routing: /api/v1/telemetry.' },
+    { status: 'success', msg: 'Database connection pool status: OK.' },
+    { status: 'warn', msg: 'Rate limiting threshold reached for IP 185.220.101.4.' },
+    { status: 'error', msg: 'SPI read checksum error on REG_SENSOR_DATA (0x42).' },
+    { status: 'success', msg: 'Recalibrating MPU-6050 accelerometer offset...' },
+    { status: 'success', msg: 'Edge inference successful: Drone confidence 98.4%.' },
+    { status: 'success', msg: 'LoRa transceiver heartbeat acknowledged.' },
+    { status: 'success', msg: 'MQTT message published to topic: sensor/esp32/telemetry.' },
+    { status: 'error', msg: 'Failed login attempt at account ritesh@embedded-core.' },
+    { status: 'success', msg: 'Corrective Action (CAPA) logs written to storage.' },
+    { status: 'success', msg: 'Incoming Quality Control (IQC) specification matches.' }
+  ];
+
+  function addLog() {
+    const time = new Date().toLocaleTimeString();
+    const item = templates[Math.floor(Math.random() * templates.length)];
+    
+    const entry = document.createElement('div');
+    entry.className = 'log-entry';
+    entry.innerHTML = `
+      <span class="log-timestamp">[${time}]</span>
+      <span class="log-status ${item.status}">${item.status}</span>
+      <span class="log-msg">${item.msg}</span>
+    `;
+    
+    logContainer.appendChild(entry);
+    
+    while (logContainer.childNodes.length > 50) {
+      logContainer.removeChild(logContainer.firstChild);
+    }
+    
+    logContainer.scrollTop = logContainer.scrollHeight;
+    
+    setTimeout(addLog, 1500 + Math.random() * 2500);
+  }
+
+  // Seed initial logs on load
+  for (let i = 0; i < 8; i++) {
+    const time = new Date(Date.now() - (8 - i) * 5000).toLocaleTimeString();
+    const item = templates[Math.floor(Math.random() * templates.length)];
+    const entry = document.createElement('div');
+    entry.className = 'log-entry';
+    entry.innerHTML = `
+      <span class="log-timestamp">[${time}]</span>
+      <span class="log-status ${item.status}">${item.status}</span>
+      <span class="log-msg">${item.msg}</span>
+    `;
+    logContainer.appendChild(entry);
+  }
+  logContainer.scrollTop = logContainer.scrollHeight;
+
+  setTimeout(addLog, 2000);
+}
+
 // INITS
 document.addEventListener("DOMContentLoaded", () => {
   type();
@@ -493,4 +563,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   fetchGitHubData();
   fetchLeetCodeData();
+  startSecurityLogLoop();
 });
